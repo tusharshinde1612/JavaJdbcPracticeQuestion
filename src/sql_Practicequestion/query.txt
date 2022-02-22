@@ -1,0 +1,92 @@
+*****Query for Exercise 7 to 11 Done practically*******
+Exercise 12:
+Query:
+SELECT customer.cust_name AS "Customer",
+customer.city AS "City",
+salesman.name AS "Salesman",
+salesman.commission
+FROM customer,salesman
+WHERE customer.salesman_id = salesman.salesman_id
+AND salesman.commission
+BETWEEN 12 AND 14;
+********************************************************
+Exercise 13:
+Query:
+SELECT * FROM departments 
+WHERE department_id 
+NOT IN (select department_id FROM employees);
+********************************************************
+Exercise 14:
+Query:
+SELECT DISTINCT salary 
+FROM employees a 
+WHERE 3 >= (SELECT COUNT(DISTINCT salary) 
+FROM employees b 
+WHERE b.salary >= a.salary) 
+ORDER BY a.salary DESC;
+*********************************************************
+Exercise 15:
+Query:
+SELECT DISTINCT salary 
+FROM employees a 
+WHERE  3 >= (SELECT COUNT(DISTINCT salary) 
+FROM employees b 
+WHERE b.salary <= a.salary) 
+ORDER BY a.salary DESC;
+**********************************************************
+Exercise 16:
+Query:
+SELECT DISTINCT salary 
+FROM employees e1 
+WHERE 4 = (SELECT COUNT(DISTINCT salary) 
+FROM employees  e2 
+WHERE e2.salary <= e1.salary);
+**********************************************************
+Exercise 17:
+Query:
+
+SELECT employee_id, first_name 
+FROM employees AS A 
+WHERE salary > 
+(SELECT AVG(salary) FROM employees WHERE department_id = A.department_id);
+***********************************************************
+Exercise 18:
+Query:
+SELECT COUNT(DISTINCT job_id) 
+FROM employees;
+***********************************************************
+Exercise 19:
+Query:
+SELECT MIN(salary) 
+FROM employees;
+***********************************************************
+Exercise 20:
+Query:
+SELECT SUM(salary) 
+FROM employees;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
